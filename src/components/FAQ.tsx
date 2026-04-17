@@ -36,13 +36,13 @@ export default function FAQ() {
   };
 
   return (
-    <div className="max-w-3xl mx-auto">
+    <div className="max-w-3xl mx-auto transition-colors duration-300">
       <div className="text-center mb-10">
-        <div className="bg-blue-100 text-blue-700 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+        <div className="bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
           <HelpCircle className="w-8 h-8" />
         </div>
-        <h2 className="text-3xl font-bold text-gray-900 mb-3">Frequently Asked Questions</h2>
-        <p className="text-gray-600">Find answers to common legal queries and learn how to navigate the Vakeel platform.</p>
+        <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Frequently Asked Questions</h2>
+        <p className="text-gray-600 dark:text-slate-400 font-medium">Find answers to common legal queries and learn how to navigate the Vakeel platform.</p>
       </div>
 
       <div className="space-y-4">
@@ -50,18 +50,20 @@ export default function FAQ() {
           <div 
             key={index} 
             className={`border rounded-2xl overflow-hidden transition-all duration-200 ${
-              openIndex === index ? 'bg-white border-blue-200 shadow-md ring-1 ring-blue-100' : 'bg-white border-gray-200 hover:border-gray-300 shadow-sm'
+              openIndex === index 
+                ? 'bg-white dark:bg-slate-900 border-blue-200 dark:border-blue-800 shadow-md ring-1 ring-blue-100 dark:ring-blue-900/30' 
+                : 'bg-white dark:bg-slate-900 border-gray-200 dark:border-slate-800 hover:border-gray-300 dark:hover:border-slate-700 shadow-sm'
             }`}
           >
             <button 
               onClick={() => toggleFaq(index)}
               className="w-full p-5 sm:p-6 flex justify-between items-center text-left focus:outline-none"
             >
-              <h3 className={`font-bold text-lg pr-4 ${openIndex === index ? 'text-blue-700' : 'text-gray-900'}`}>
+              <h3 className={`font-bold text-lg pr-4 ${openIndex === index ? 'text-blue-700 dark:text-blue-400' : 'text-gray-900 dark:text-slate-100'}`}>
                 {faq.question}
               </h3>
-              <div className={`p-2 rounded-full transition-transform duration-300 flex-shrink-0 ${openIndex === index ? 'bg-blue-100 rotate-180' : 'bg-gray-100'}`}>
-                <ChevronDown className={`w-5 h-5 ${openIndex === index ? 'text-blue-600' : 'text-gray-500'}`} />
+              <div className={`p-2 rounded-full transition-transform duration-300 flex-shrink-0 ${openIndex === index ? 'bg-blue-100 dark:bg-blue-900/50 rotate-180' : 'bg-gray-100 dark:bg-slate-800'}`}>
+                <ChevronDown className={`w-5 h-5 ${openIndex === index ? 'text-blue-600 dark:text-blue-400' : 'text-gray-500 dark:text-slate-400'}`} />
               </div>
             </button>
             <div 
@@ -69,8 +71,8 @@ export default function FAQ() {
                 openIndex === index ? 'max-h-96 pb-6 opacity-100' : 'max-h-0 pb-0 opacity-0'
               }`}
             >
-              <div className="h-px w-full bg-gray-100 mb-4"></div>
-              <p className="text-gray-600 leading-relaxed">
+              <div className="h-px w-full bg-gray-100 dark:bg-slate-800 mb-4"></div>
+              <p className="text-gray-600 dark:text-slate-400 leading-relaxed">
                 {faq.answer}
               </p>
             </div>
@@ -78,11 +80,11 @@ export default function FAQ() {
         ))}
       </div>
       
-      <div className="mt-12 bg-slate-50 border border-slate-200 p-8 rounded-3xl text-center">
-        <h4 className="text-lg font-bold text-gray-900 mb-2">Still have questions?</h4>
-        <p className="text-gray-600 mb-6">Our AI Legal Advice Index is designed to answer specific procedural questions.</p>
-        <button className="bg-slate-900 hover:bg-slate-800 text-white font-medium py-2.5 px-6 rounded-xl transition-colors">
-          Ask the Legal AI Chatbot
+      <div className="mt-12 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-8 rounded-3xl text-center transition-colors">
+        <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Still have questions?</h4>
+        <p className="text-gray-600 dark:text-slate-400 mb-6 font-medium">Our AI Legal Assistant is designed to answer specific procedural questions.</p>
+        <button className="bg-slate-900 dark:bg-blue-600 hover:bg-slate-800 dark:hover:bg-blue-500 text-white font-bold py-3 px-8 rounded-xl transition-colors shadow-sm">
+          Ask Vakeel Assistant
         </button>
       </div>
     </div>
